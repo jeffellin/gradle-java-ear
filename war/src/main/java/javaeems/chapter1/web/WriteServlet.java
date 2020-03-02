@@ -3,17 +3,20 @@ package javaeems.chapter1.web;
 import java.io.IOException;
 import javaeems.chapter1.model.MessageException;
 import javaeems.chapter1.model.ModelEJB;
-import javax.ejb.EJB;
+//import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.springframework.beans.factory.annotation.Autowired;
 
 
 @WebServlet(name = "WriteServlet", urlPatterns = {"/WriteServlet"})
+
 public class WriteServlet extends HttpServlet {
-    @EJB
+   // @EJB
+    @Autowired
     private ModelEJB helloEJB;
     private static String PUT_MESSAGE = "put_message";
 

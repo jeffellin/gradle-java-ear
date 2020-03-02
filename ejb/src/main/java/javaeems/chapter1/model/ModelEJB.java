@@ -3,16 +3,21 @@ package javaeems.chapter1.model;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.util.List;
-import javax.ejb.*;
+//import javax.ejb.*;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-@Stateful
+
+@Service
+@Transactional
 public class ModelEJB {
-    @PersistenceContext(unitName = "HelloEJBJPA_TRUE_MVC_JavaEE-ejbPU")
+    @Autowired
     EntityManager em;
-    
+
     public void putUserMessage(String messageString) throws MessageException {
         this.deleteMessage();
         try {
